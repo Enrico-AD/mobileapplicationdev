@@ -1,0 +1,23 @@
+import React from "react";
+import { View, Text, Button } from "react-native";
+
+
+function Principal() {
+  return (
+    <View style = {{flex: 1, backgroundColor:"yellow", justifyContent: "center", alignItems: "center"}}>
+    <Text style={{fontSize: 20}}>Ola mundo React Native</Text>
+    <Button title = "ok" color = "green"/>
+    </View>
+  )
+}
+
+export default Principal;
+
+
+
+
+
+
+
+
+
