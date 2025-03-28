@@ -1,0 +1,78 @@
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+const animais = [
+  { nome: "Totó", raca: "Vira Lata", idade: 4, peso: 9.6, dono: "Nathalia Almeida" },
+  { nome: "Rex", raca: "Pastor Alemão", idade: 7, peso: 23.8, dono: "Gabriel" },
+  { nome: "Suri", raca: "Lhasa", idade: 9, peso: 7.0, dono: "Antonio" },
+  { nome: "Lassie", raca: "Cockie", idade: 16, peso: 13.0, dono: "Antonio" }
+];
+
+export default function App() {
+
+  return (
+
+    <View style={estilos.container}>
+      <Text style={estilos.titulo}>Lista de Animais</Text>
+      {animais.map((animal, index) => (
+        <View key={index} style={estilos.containerAnimal}>
+          <Text style={estilos.nomeAnimal}>{animal.nome}</Text>
+          <Text style={estilos.texto}>Raça: {animal.raca}</Text>
+          <Text style={estilos.texto}>Idade: {animal.idade} anos</Text>
+          <Text style={estilos.texto}>Peso: {animal.peso} kg</Text>
+          <Text style={estilos.texto}>Dono(a): {animal.dono}</Text>
+        </View>
+      ))}
+    </View>
+
+  );
+
+}
+
+const estilos = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#f0f8ff",  // Azul claro
+    alignItems: "center",
+    justifyContent: "flex-start",
+    marginTop: 50,
+    paddingHorizontal: 20,
+  },
+
+  titulo: {
+    fontSize: 28,  // Aumentando o tamanho da fonte
+    fontFamily: "serif",  // Fonte serifada
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: "#2e3b4e",  // Cor escura para o título
+  },
+
+  containerAnimal: {
+    borderWidth: 2,
+    borderColor: "#ff6347",  // Cor de borda laranja-avermelhada
+    padding: 20,
+    marginBottom: 15,
+    borderRadius: 10,  // Bordas mais arredondadas
+    width: "100%",
+    backgroundColor: "#fff",  // Cor de fundo branca para cada pet
+    shadowColor: "#000",  // Adicionando sombra para destacar
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+  },
+
+  nomeAnimal: {
+    fontSize: 22,  // Aumentando o tamanho da fonte do nome
+    fontFamily: "sans-serif",  // Fonte sans-serif
+    fontWeight: "bold",
+    color: "#4b0082",  // Cor roxa para o nome do animal
+    marginBottom: 8,
+  },
+
+  texto: {
+    fontSize: 16,
+    fontFamily: "Arial",  // Fonte mais simples para os detalhes
+    color: "#333",  // Cor de texto mais suave
+    marginBottom: 6,
+  },
+});
