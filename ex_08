@@ -1,0 +1,77 @@
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+const listaProdutos = [
+  { nome: "Camiseta", preco: 29.99, categoria: "Roupas" },
+  { nome: "Tênis", preco: 79.99, categoria: "Calçados" },
+  { nome: "Celular", preco: 899.99, categoria: "Eletrônicos" },
+  { nome: "Livro", preco: 19.99, categoria: "Livros" }
+];
+
+export default function App() {
+
+  return (
+
+    <View style={estilos.container}>
+      <Text style={estilos.titulo}>Lista de Produtos</Text>
+      {listaProdutos.map((produto, index) => (
+        <View key={index} style={estilos.containerItem}>
+          <Text style={estilos.nomeProduto}>{produto.nome}</Text>
+          <Text style={estilos.texto}>Preço: R$ {produto.preco.toFixed(2)}</Text>
+          <Text style={estilos.texto}>Categoria: {produto.categoria}</Text>
+        </View>
+      ))}
+    </View>
+
+  );
+
+}
+
+const estilos = StyleSheet.create({
+
+  container: {
+    flex: 1,
+    backgroundColor: "#f4f4f9", // Cor de fundo mais neutra
+    alignItems: "center",
+    justifyContent: "flex-start",
+    marginTop: 50,
+    paddingHorizontal: 20,
+  },
+
+  titulo: {
+    fontSize: 26,  // Tamanho maior
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: "#2d2d2d",  // Cor escura para o título
+    fontFamily: "serif",  // Fonte serifada
+  },
+
+  containerItem: {
+    borderWidth: 2,  // Aumentando a largura da borda
+    borderColor: "#ff6347",  // Cor de borda mais vibrante
+    padding: 16,  // Aumentando o padding
+    marginBottom: 12,  // Aumentando o espaçamento entre os itens
+    borderRadius: 8,  // Bordas mais arredondadas
+    width: "100%",
+    backgroundColor: "#fff",  // Cor de fundo branca para destacar os itens
+    shadowColor: "#000",  // Adicionando sombra
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+  },
+
+  nomeProduto: {
+    fontSize: 18,  // Tamanho maior
+    fontWeight: "bold",
+    color: "#333",  // Cor escura para o nome do produto
+    marginBottom: 8,
+  },
+
+  texto: {
+    fontSize: 14,  // Tamanho menor para os detalhes
+    color: "#555",  // Cor de texto suave
+    marginBottom: 4,
+    fontFamily: "Arial",  // Fonte mais simples
+  },
+
+});
